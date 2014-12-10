@@ -50,7 +50,7 @@ def SeriesFunc(torrent, args):
         if res['type'] == 'episode':
           l = False
           
-      if (l)
+      if (l):
         args['chain'].append("Series") 
         return
 
