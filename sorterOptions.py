@@ -44,13 +44,15 @@ def SeriesFunc(torrent, args):
   res = guess_file_info(torrent.name)
   if res['type'] != 'episode':
       files = torrent.files()
+      l = True
       for fl in files:
         res = guess_file_info(files[fl]['name'])
         if res['type'] == 'episode':
-          break
-      
-      args['chain'].append("Series") 
-      return
+          l = False
+          
+      if (l)
+        args['chain'].append("Series") 
+        return
 
   args['chain'].append("Series") 
   
