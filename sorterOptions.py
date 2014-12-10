@@ -36,11 +36,19 @@ def Video(torrent, args):
   
   return SeriesFunc(torrent, args) or MovieFunc(torrent, args)
     
+    
+
 def SeriesFunc(torrent, args):
   global settings
   
   res = guess_file_info(torrent.name)
   if res['type'] != 'episode':
+      files = torrent.files()
+      for fl in files:
+        res = guess_file_info(files[fl]['name'])
+        if res['type'] == 'episode':
+          break
+      
       args['chain'].append("Series") 
       return
 
