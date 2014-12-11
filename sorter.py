@@ -218,7 +218,8 @@ def accept(torrent,handlerArgs):
     
     if (not args.dry_run):
       res = tc.move_torrent_data(torrent.id, handlerArgs['downloadDir'])
-      debugMessage(res)
+      debugMessage(str(res))
+      torrent.update()
   
   if 'params' in handlerArgs and len(handlerArgs['params']) > 0:
     debugMessage("Setting atributes: ")
