@@ -133,16 +133,16 @@ def saveSeenedDb():
 
 def isSeenedTorrent(torrent):
   global seenedDb
-  return torrent.id in seenedDb
+  return torrent.hashString in seenedDb
 
 def setSeenedTorrent(torrent, isSeened):
   
   if (isSeened and not isSeenedTorrent(torrent)):
     if (not args.dry_run):
-      seenedDb.append(torrent.id)
+      seenedDb.append(torrent.hashString)
   elif not isSeened and isSeenedTorrent(torrent):
     if (not args.dry_run):
-      seenedDb.remove(torrent.id)   
+      seenedDb.remove(torrent.hashString)   
   return
   
 def clearTorrents(torrents):
